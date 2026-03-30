@@ -1,0 +1,233 @@
+1. HTML DOM API
+----------------------------
+<html>
+<body>
+
+<p id="demo" title="this is dummy title"></p>
+
+<script>
+// Access a paragraph Element
+const myPara = document.getElementById("demo");
+
+// Change the content of the Element
+myPara.innerHTML = "Hello World!";
+myPara.style.color="blue";
+myPara.style.fontSize="30px";
+
+myPara.setAttribute("title","setting dummy title attribute");
+console.log(myPara.title);
+
+//Create Element
+const newPara = document.createElement("p");
+newPara.textContent = "This is new para";
+newPara.style.color = "red";
+
+//Append Child
+document.body.appendChild(newPara);
+
+//Replace Child
+const replacePara = document.createElement("p");
+replacePara.textContent = "I am replaced para";
+replacePara.style.color = "green";
+
+document.body.replaceChild(replacePara, newPara);
+
+//Remove Child
+const removePara = document.createElement("p");
+removePara.textContent = "I will be removed";
+
+//first append and then remove...
+document.body.appendChild(removePara);
+
+document.body.removeChild(removePara);
+
+</script>
+
+</body>
+</html>
+
+2. Adding Event Handlers
+-----------------------------------
+<html>
+<body>
+<button id="myBtn">Click Me</button>
+<p id="demo"></p>
+
+<script>
+  document.getElementById("myBtn").onclick = function(){
+    document.getElementById("demo").innerHTML = "button was clicked";
+  };
+</script>
+
+</body>
+</html>
+
+3. Selecting DOM Elements
+-------------------------------------
+<html>
+<body>
+<p id="intro">Finding HTML Elements by Id</p>
+<p id="demo"></p>
+
+<p class="demoClass"></p>
+<script>
+  //elementById
+const elementById = document.getElementById("intro");
+document.getElementById("demo").innerHTML = "Jhon Cena!"+elementById.innerHTML;
+
+//elementByClassName
+const elementByClassName = document.getElementsByClassName("demoClass");
+elementByClassName[0].innerHTML = "Get Element By Class Name";
+
+//elementByClassName
+const elementsByTagname = document.getElementsByTagName("p");
+for(let i=0;i<elementsByTagname.length;i++)
+{
+  elementsByTagname[i].style.color = "green";
+}
+</script>
+</body>
+</html>
+
+QuerySelector(One method for everything) / QuerySelectorAll
+----------------------------------------------------------------------------------
+<html>
+<body>
+<p id="intro">Finding HTML Elements by Id</p>
+<p id="demo"></p>
+
+<p class="demoClass"></p>
+<script>
+const elementById = document.querySelector("#intro");
+document.querySelector("#demo").innerHTML = "Jhon Cena!"+elementById.innerHTML;
+
+const elementByClassName = document.querySelector(".demoClass");
+elementByClassName.innerHTML = "Get Element By Class Name";
+
+const elementsByTagname = document.querySelectorAll("p");
+for(let i=0;i<elementsByTagname.length;i++)
+{
+  elementsByTagname[i].style.color = "green";
+}
+</script>
+</body>
+</html>
+
+4. HTML DOM - Changing HTML
+--------------------------------------------
+Changing an Attribute 
+-----------------------------
+syntax:- document.getElementById(id).attribute = new value
+ex:- document.getElementById("myImage").src = "landscape.jpg"
+
+Dynamic HTML Content
+--------------------------------
+<html>
+<body>
+<p id="intro">Finding HTML Elements by Id</p>
+<p id="demo"></p>
+
+<p class="demoClass"></p>
+<script>
+  document.getElementById("demo").innerHTML = "Date: "+ Date();
+  document.write("Printing date again"+Date());
+</script>
+</body>
+</html>
+
+5. HTML DOM - Changing CSS
+------------------------------------------
+<html>
+<body>
+<!-- Change the style of the HTML element with id="id1", when the user clicks a button: -->
+<p id="id1">This is a para element</p>
+<button type="button" onclick="document.getElementById('id1').style.color='red'">Click Me!</button>
+
+</body>
+</html>
+
+How to make an element invisible. Do you want to show the element or not?
+---------------------------------------------------------------------------------------------------------
+<p id="p1">This is text 1
+This is text 2
+This is text 3</p>
+
+<!-- make 2 buttons 'Show text' & 'Hide text' and add events as expected-->
+<input type="button" value="Show Text" onclick="document.getElementById('p1').style.visibility='visible'"/>
+
+<input type="button" value="Hide Text" onclick="document.getElementById('p1').style.
+visibility='hidden'">
+
+6. JAVASCRIPT Form Validation
+--------------------------------------------
+
+  function validateForm(){
+    let name = document.forms["myForm"]["fname"].value;
+    if(name == ""){
+      alert("Name must not be empty.");
+      return false;
+    }
+  }
+
+
+<h2>Javascript Validation</h2>
+  <form name="myForm" action="https://www.google.com" onsubmit="return validateForm()">
+    Name:<input type="text" name="fname">
+    <input type="submit" value="Submit">
+  </form>
+
+Automatic form validation(using attribute)
+-------------------------------------------------------
+<h2>Javascript Validation</h2>
+  <form name="myForm" method="post">
+    Name:<input type="text" name="fname" required>
+    <input type="submit" value="Submit" >
+  </form>
+  <p id="result"></p>
+
+7. HTML DOM Animations
+-------------------------------
+<style>
+  #container{
+  width:400px;
+  height:400px;
+  position: relative;
+  background-color: yellow;
+}
+#animate{
+  width: 50px;
+  height: 50px;
+  position: relative;
+  background-color: red;
+}
+</style>
+
+<body>
+<p><button onclick="myMove()">Click Me!</button></p>
+<div id="container">
+  <div id="animate">
+  </div>
+</div>
+</body>
+
+<script>
+  function myMove(){
+  let id = null;
+  let ele = document.getElementById("animate");
+  let pos = 0;
+  id = setInterval(frame,5);
+
+  function frame()
+  {
+    if(pos == 350)
+    {
+      clearInterval(id);
+    }
+    else{
+      pos++;
+      ele.style.top = pos+"px";
+      ele.style.left = pos+"px";
+    }
+  }
+}
+</script>
