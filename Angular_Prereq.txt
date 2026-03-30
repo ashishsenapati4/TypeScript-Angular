@@ -1,0 +1,30 @@
+To master Angular, you must have a solid foundation in the "core three" of web development—HTML, CSS, and JavaScript—along with the specific tools Angular relies on. 
+Below are the mandatory concepts to learn before you start with Angular:
+
+1. JavaScript (ES6+ Standards)
+--------------------------------
+Since Angular is built on modern JavaScript, you must understand these features:
+Classes & Modules: Understanding import and export is critical, as every Angular file is a module.
+Arrow Functions: Used extensively for callbacks and concise logic.
+Asynchronous JS: You must be comfortable with Promises and Async/Await to handle data from servers.
+Array Methods: Mastering .map(), .filter(), and .reduce() is essential for data manipulation. 
+
+2. TypeScript Fundamentals
+---------------------------
+You don't need to be an expert, but you must understand:
+Static Typing: How to declare variables with types (e.g., name: string) to avoid runtime errors.
+Interfaces: Used to define the "shape" of data objects in your application.
+Decorators: Angular uses these (like @Component) to provide metadata to classes. 
+
+3. Reactive Programming (RxJS) 
+------------------------------
+Angular relies heavily on RxJS for its core operations. You should at least know the basics of: 
+
+Observables: The primary way Angular handles data streams (like HTTP requests).
+Subscribing: How to "listen" to a data stream to receive updates.
+Operators: Basics of common operators like map, filter, and pipe. 
+
+4. Basic Development Tools
+------------------------------
+Node.js & NPM: You need Node.js installed to run the Angular CLI and manage project packages.
+The Command Line: Basic familiarity with a terminal (Command Prompt or Terminal) to run setup commands like ng serve. 
